@@ -13,8 +13,8 @@
 const int inf = 3e+8;
 
 typedef struct Euclidead_coordinate {
-	float x;
-	float y;
+    float x;
+    float y;
 } euc_c;
 
 typedef struct Edge {

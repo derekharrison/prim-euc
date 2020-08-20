@@ -143,12 +143,12 @@ void Prim::prim_algo() {
         int parent_index = node_array[min_node.index].parent_index;
         int index = min_node.index;
         fprintf(file_ptr, "%i %f %f %i %f %f %f\n", parent_index,
-        		                                    node_array[parent_index].coordinates.x,
-        		                                    node_array[parent_index].coordinates.y,
-        		                                    node_array[index].index,
-        		                                    node_array[index].coordinates.x,
-        		                                    node_array[index].coordinates.y,
-        		                                    weight_mat[parent_index][index]);
+                                                    node_array[parent_index].coordinates.x,
+                                                    node_array[parent_index].coordinates.y,
+                                                    node_array[index].index,
+                                                    node_array[index].coordinates.x,
+                                                    node_array[index].coordinates.y,
+                                                    weight_mat[parent_index][index]);
 
         for(unsigned int i = 0; i < min_node.adj_nodes.size(); ++i) {
             int start_vertex = min_node.index;

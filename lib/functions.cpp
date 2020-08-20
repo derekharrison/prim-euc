@@ -61,8 +61,8 @@ void populate_adj_and_weight(bool** adj_mat, euc_c* coordinates, float** weight_
     srand(time(NULL));
     float max_coordinates = 10.0;
     for(int i = 0; i < size_graph; ++i) {
-    	float rand_num_x = (float) rand() / RAND_MAX;
-    	float rand_num_y = (float) rand() / RAND_MAX;
+        float rand_num_x = (float) rand() / RAND_MAX;
+        float rand_num_y = (float) rand() / RAND_MAX;
         coordinates[i].x = rand_num_x * max_coordinates;
         coordinates[i].y = rand_num_y * max_coordinates;
     }
@@ -74,7 +74,7 @@ void populate_adj_and_weight(bool** adj_mat, euc_c* coordinates, float** weight_
                 adj_mat[j][i] = adj_mat[i][j] = rand_num > (1 - density);
                 if(adj_mat[i][j]) {
                     weight_mat[j][i] = weight_mat[i][j] = sqrt((coordinates[i].x - coordinates[j].x)*(coordinates[i].x - coordinates[j].x) +
-                    		                                   (coordinates[i].y - coordinates[j].y)*(coordinates[i].y - coordinates[j].y));
+                                                               (coordinates[i].y - coordinates[j].y)*(coordinates[i].y - coordinates[j].y));
                 }
             }
         }
