@@ -58,7 +58,7 @@ void populate_adj_and_weight(bool** adj_mat, euc_c* coordinates, float** weight_
     init_adj_mat(adj_mat, size_graph);
     init_weight_mat(weight_mat, size_graph);
 
-//    srand(time(NULL));
+    srand(time(NULL));
     float max_coordinates = 10.0;
     for(int i = 0; i < size_graph; ++i) {
     	float rand_num_x = (float) rand() / RAND_MAX;
