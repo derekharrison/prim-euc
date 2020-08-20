@@ -133,6 +133,7 @@ void Prim::prim_algo() {
     if (file_ptr == NULL) {
         printf("Could not open file");
     }
+    /* Main iterations of Prim algorithm */
     for(int it = 0; it < this->length; ++it) {
         node min_node = Prim::heap_extract_min();
         this->min_node_arr[it] = min_node;
@@ -140,6 +141,7 @@ void Prim::prim_algo() {
             index_map[this->heap[i].index] = i;
         }
 
+        /* Export data to file */
         int parent_index = node_array[min_node.index].parent_index;
         int index = min_node.index;
         fprintf(file_ptr, "%i %f %f %i %f %f %f\n", parent_index,
@@ -150,6 +152,7 @@ void Prim::prim_algo() {
                                                     node_array[index].coordinates.y,
                                                     weight_mat[parent_index][index]);
 
+        /* Update index info and keys of neighboring nodes */
         for(unsigned int i = 0; i < min_node.adj_nodes.size(); ++i) {
             int start_vertex = min_node.index;
             int end_vertex = min_node.adj_nodes[i];
