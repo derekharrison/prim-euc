@@ -34,6 +34,7 @@ Prim::~Prim() {
     delete [] this->heap;
     delete [] this->node_array;
     delete [] this->min_node_arr;
+    delete [] this->coordinates;
     delete_float2D(this->weight_mat, this->length);
 }
 
