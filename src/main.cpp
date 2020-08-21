@@ -36,6 +36,7 @@ int main(int argc, char* argv[])
     /* Free allocated data */
     delete_bool2D(adj_mat, size);
     delete_float2D(weight_mat, size);
+    delete [] coordinates;
 
     return 0;
 }
