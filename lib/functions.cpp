@@ -108,14 +108,14 @@ float** float2D(const int size) {
 
 void delete_bool2D(bool **p, int size) {
     for(int i = 0; i < size; ++i)
-            delete [] p[i];
+        delete [] p[i];
 
     delete [] p;
 }
 
 void delete_float2D(float **p, int size) {
     for(int i = 0; i < size; ++i)
-            delete [] p[i];
+        delete [] p[i];
 
     delete [] p;
 }
