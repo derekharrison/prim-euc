@@ -13,6 +13,7 @@
 void init_adj_mat(bool** adj_mat, int size);
 void init_weight_mat(float** weight_mat, int size);
 void init_weight_mat(float** weight_mat, float** weight_mat_ref, int size);
+void init_coordinates(euc_c* coordinates, euc_c* coordinates_ref, int size);
 void print_adj_mat(bool** adj_mat, int size);
 void print_weight_mat(float** weight_mat, int size);
 void populate_adj_and_weight(bool** adj_mat, euc_c* coordinates, float** weight_mat, int size_graph, float density);

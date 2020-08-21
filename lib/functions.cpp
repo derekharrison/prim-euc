@@ -34,6 +34,12 @@ void init_weight_mat(float** weight_mat, float** weight_mat_ref, int size) {
         }
 }
 
+void init_coordinates(euc_c* coordinates, euc_c* coordinates_ref, int size) {
+    for(int i = 0; i < size; ++i) {
+        coordinates[i] = coordinates_ref[i];
+    }
+}
+
 void print_adj_mat(bool** adj_mat, int size) {
     printf("adjancy matrix\n");
     for(int i = 0; i < size; ++i) {

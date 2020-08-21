@@ -12,7 +12,7 @@
 
 const int inf = 3e+8;
 
-typedef struct Euclidead_coordinate {
+typedef struct Euclidean_coordinates {
     float x;
     float y;
 } euc_c;

@@ -20,6 +20,8 @@ Prim::Prim(bool** adj_mat, float** weight_mat, euc_c* coordinates, int size) {
     this->heap[0].key = inf;
     this->node_array = new node[size];
     this->min_node_arr = new node[size+1];
+    this->coordinates = new euc_c[size];
+    init_coordinates(this->coordinates, coordinates, size);
     this->weight_mat = float2D(size);
     init_weight_mat(this->weight_mat, weight_mat, size);
     make_edge_set(this->edge_set, adj_mat, weight_mat, size);
@@ -141,26 +143,28 @@ void Prim::prim_algo() {
         /* Export data to file */
         int parent_index = node_array[min_node.index].parent_index;
         int index = min_node.index;
-        fprintf(file_ptr, "%i %f %f %i %f %f %f\n", parent_index,
-                                                    node_array[parent_index].coordinates.x,
-                                                    node_array[parent_index].coordinates.y,
-                                                    node_array[index].index,
-                                                    node_array[index].coordinates.x,
-                                                    node_array[index].coordinates.y,
-                                                    weight_mat[parent_index][index]);
+        fprintf(file_ptr, "%i %f %f %i %f %f %f %f %f\n", parent_index,
+                                                          this->node_array[parent_index].coordinates.x,
+                                                          this->node_array[parent_index].coordinates.y,
+                                                          this->node_array[index].index,
+                                                          this->node_array[index].coordinates.x,
+                                                          this->node_array[index].coordinates.y,
+                                                          this->weight_mat[parent_index][index],
+                                                          this->coordinates[it].x,
+                                                          this->coordinates[it].y);
 
         /* Update index info and keys of neighboring nodes */
         for(unsigned int i = 0; i < min_node.adj_nodes.size(); ++i) {
             int start_vertex = min_node.index;
             int end_vertex = min_node.adj_nodes[i];
             int index_a = index_map[end_vertex];
-            node v = node_array[end_vertex];
+            node v = this->node_array[end_vertex];
             if(v.in_q && this->weight_mat[start_vertex][end_vertex] < v.key) {
-                node_array[end_vertex].parent_index = min_node.index;
-                node_array[end_vertex].index = end_vertex;
-                node_array[end_vertex].pi = &min_node_arr[it];
-                node_array[end_vertex].key = weight_mat[start_vertex][end_vertex];
-                heap[index_a].key = weight_mat[start_vertex][end_vertex];
+            	this->node_array[end_vertex].parent_index = min_node.index;
+            	this->node_array[end_vertex].index = end_vertex;
+            	this->node_array[end_vertex].pi = &min_node_arr[it];
+            	this->node_array[end_vertex].key = this->weight_mat[start_vertex][end_vertex];
+            	this->heap[index_a].key = this->weight_mat[start_vertex][end_vertex];
             }
         }
 

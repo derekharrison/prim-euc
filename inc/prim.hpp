@@ -16,6 +16,7 @@ private:
     int length;
     node* heap;
     node* node_array;
+    euc_c* coordinates;
     float** weight_mat;
     node* min_node_arr;
     std::vector <edge> edge_set;
