@@ -12,9 +12,9 @@ plt.rcParams['animation.ffmpeg_path']='C:/Users/d-w-h/Downloads/ffmpeg-20200818-
 writer=manimation.FFMpegWriter(bitrate=20000, fps=15)
 
 fig = plt.figure(figsize=(8,8))
-
+ax = plt.axes(xlim=(0, 10), ylim=(0, 10))
+ 
 def animate(i):
-    ax = plt.axes(xlim=(0, 10), ylim=(0, 10))
     print(i)
     ax = plt.scatter(c_x, c_y, s=10, c='green')
     X = (start_x[i], end_x[i])

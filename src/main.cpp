@@ -15,7 +15,7 @@
 
 int main(int argc, char* argv[])
 {
-    int size = 1000;
+    int size = 500;
     float density = 0.5;
     bool** adj_mat = bool2D(size);
     float** weight_mat = float2D(size);
