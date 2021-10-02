@@ -10,7 +10,8 @@
 
 #include <vector>
 
-const int inf = 3e+8;
+const float inf = 3e+8;
+const int SETVAR = 314159;
 
 typedef struct Euclidean_coordinates {
     float x;
@@ -32,6 +33,31 @@ typedef struct Node {
     int parent_index;
     bool in_q;
     std::vector <int> adj_nodes;
+
+    Node* left;
+    Node* right;
+    Node* p;
+    Node* child;
+
+    int degree;
+    bool mark;
 } node;
+
+typedef struct FibHeapProperties {
+    bool deg_is_num_child;
+    int num_nodes;
+} fib_props;
+
+typedef struct MSTProperties {
+    float mst_weight;
+    node** node_arr;
+} mst_props;
+
+class FibHeap {
+public:
+    int n;
+    node* min;
+    FibHeap() { min = NULL; n = 0; }
+};
 
 #endif /* USER_TYPES_HPP_ */

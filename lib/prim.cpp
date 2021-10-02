@@ -13,7 +13,7 @@
 
 const char* file_name = "mst_data.txt";
 
-Prim::Prim(bool** adj_mat, float** weight_mat, euc_c* coordinates, int size) {
+Prim::Prim(int** adj_mat, float** weight_mat, euc_c* coordinates, int size) {
     this->heap_size = size;
     this->length = size;
     this->heap = new node[size+1];

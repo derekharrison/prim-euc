@@ -29,7 +29,7 @@ private:
     node heap_extract_min();
 
 public:
-    Prim(bool** adj_mat, float** weight_mat, euc_c* coordinates, int size);
+    Prim(int** adj_mat, float** weight_mat, euc_c* coordinates, int size);
     ~Prim();
 
     void prim_algo();
