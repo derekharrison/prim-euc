@@ -12,7 +12,6 @@
 #include <time.h>
 
 #include "../inc/functions.hpp"
-#include "../inc/prim.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -20,10 +19,9 @@ int main(int argc, char* argv[])
     int s = 0; //Start vertex
     int n = 10; //Number of vertices
     int num_edges = 15; //Number of edges
-    euc_c* r_vec = new euc_c[n];
-    std::vector< edge > edges;
 
     //Create coordinates
+    euc_c* r_vec = new euc_c[n];
     float max_r_vec = 10.0;
     srand(time(NULL));
     for(int i = 0; i < n; ++i) {
@@ -34,6 +32,7 @@ int main(int argc, char* argv[])
     }
 
     //Create edges
+    std::vector< edge > edges;
     for(int i = 0; i < num_edges; ++i) {
         int start = rand() % n + 0;
         int end = rand() % n + 0;
@@ -55,6 +54,9 @@ int main(int argc, char* argv[])
     std::cout << "size of minimum spanning tree: " << min_span_props.mst_weight << std::endl;
     std::cout << "done" << std::endl;
 
+    //Deallocate memory
+    delete_node_ref(min_span_props.node_arr, n);
+    delete [] r_vec;
 
     return 0;
 }

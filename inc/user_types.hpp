@@ -13,7 +13,7 @@
 const float inf = 3e+8;
 const int SETVAR = 314159;
 
-typedef struct Euclidean_coordinates {
+typedef struct EuclideanCoordinates {
     float x;
     float y;
 } euc_c;
